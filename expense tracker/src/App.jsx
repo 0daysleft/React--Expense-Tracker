@@ -11,6 +11,10 @@ function App() {
     let date = document.getElementById("date").value;
 
     expenses.push({category, amount, date});
+
+    document.getElementById("category").value = "";
+    document.getElementById("amount").value = "";
+    document.getElementById("date").value = "";
   }
 
   return (
