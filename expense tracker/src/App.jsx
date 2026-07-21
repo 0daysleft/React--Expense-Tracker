@@ -8,9 +8,7 @@ function App() {
       <h1>Monthly Expense Tracker</h1>
       Cash: $3000
       <div className="form">
-        <input type="number" className="number" id='amount'/>
-        <input type="date" className="date" id='date'/>
-        <label for="category">Category:</label>
+        <label htmlFor="category">Category:</label>
         <select id="category" name="category" required>
           <option value="" selected disabled>
             📂 Select a category
@@ -29,6 +27,10 @@ function App() {
           <option value="miscellaneous">📦 Miscellaneous</option>
           <option value="income">💵 Income</option>
         </select>
+        <label htmlFor="number" className="amount">Amount: </label>
+        <input type="number" className="number" id="amount" />
+        <label htmlFor="date" className="date">Date:</label>
+        <input type="date" className="date" id="date" />
       </div>
     </div>
   );
