@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-
+  let cash = 3000
   let expenses = [];
 
   const addExpense = () => {
@@ -12,6 +12,9 @@ function App() {
 
     expenses.push({category, amount, date});
 
+    const total = expenses.reduce((sum, item) => sum + item.amount, 0);
+    console.log(total)
+    
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
     document.getElementById("date").value = "";
@@ -20,7 +23,7 @@ function App() {
   return (
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
-      Cash: $3000
+      Cash: ${cash}
       <div className="form">
         <label htmlFor="category">Category:</label>
         <select id="category" name="category" required>
