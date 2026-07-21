@@ -3,6 +3,16 @@ import './App.css'
 
 function App() {
 
+  let expenses = [];
+
+  const addExpense = () => {
+    let category = document.getElementById("category").value;
+    let amount = document.getElementById("amount").value;
+    let date = document.getElementById("date").value;
+
+    expenses.push({category, amount, date});
+  }
+
   return (
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
@@ -31,6 +41,7 @@ function App() {
         <input type="number" className="number" id="amount" />
         <label htmlFor="date" className="date">Date:</label>
         <input type="date" className="date" id="date" />
+         <button className="submit" onClick={addExpense} >Add Expense</button>
       </div>
     </div>
   );
