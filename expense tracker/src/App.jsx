@@ -13,12 +13,7 @@ function App() {
     expenses.push({category, amount, date});
 
     let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
-
-    cash = (3000 - total )
-
-    console.log(expenses);
-    console.log(total);
-
+    
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
     document.getElementById("date").value = "";
