@@ -2,18 +2,23 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  let cash = 3000
+  let cash;
   let expenses = [];
 
   const addExpense = () => {
     let category = document.getElementById("category").value;
-    let amount = document.getElementById("amount").value;
+    let amount = Number(document.getElementById("amount").value);
     let date = document.getElementById("date").value;
 
     expenses.push({category, amount, date});
 
-    cash = expenses.reduce((sum, item) => sum + item.amount, 0);
-    
+    let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
+
+    cash = (3000 - total )
+
+    console.log(expenses);
+    console.log(total);
+
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
     document.getElementById("date").value = "";
@@ -48,6 +53,9 @@ function App() {
         <label htmlFor="date" className="date">Date:</label>
         <input type="date" className="date" id="date" />
          <button className="submit" onClick={addExpense} >Add Expense</button>
+      </div>
+      <div className="expenses">
+        
       </div>
     </div>
   );
