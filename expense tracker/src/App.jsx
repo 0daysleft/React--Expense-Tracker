@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  let cash;
+  const [cash, setCash] = useState(0);
   let expenses = [];
 
   const addExpense = () => {
@@ -13,7 +13,7 @@ function App() {
     expenses.push({category, amount, date});
 
     let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
-    
+    setCash(3000-total);
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
     document.getElementById("date").value = "";
