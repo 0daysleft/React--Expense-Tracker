@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [cash, setCash] = useState(0);
+  const [cash, setCash] = useState(3000);
   let expenses = [];
 
   const addExpense = () => {
