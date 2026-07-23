@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
-      Cash: ${cash}
+      <h2>Cash: ${cash}</h2>
       <div className="form">
         <label htmlFor="category">Category:</label>
         <select id="category" name="category" required>
@@ -43,15 +43,19 @@ function App() {
           <option value="miscellaneous">📦 Miscellaneous</option>
           <option value="income">💵 Income</option>
         </select>
-        <label htmlFor="number" className="amount">Amount: </label>
+        <label htmlFor="number" className="amount">
+          Amount:{" "}
+        </label>
         <input type="number" className="number" id="amount" />
-        <label htmlFor="date" className="date">Date:</label>
+        <label htmlFor="date" className="date">
+          Date:
+        </label>
         <input type="date" className="date" id="date" />
-         <button className="submit" onClick={addExpense} >Add Expense</button>
+        <button className="submit" onClick={addExpense}>
+          Add Expense
+        </button>
       </div>
-      <div className="expenses">
-        
-      </div>
+      <div className="expenses"></div>
     </div>
   );
 }
