@@ -23,3 +23,9 @@
       font-size: large;
       font-weight: 600;
 }
+
+.submit{
+      margin: 1em 0 2px 0;
+      cursor: pointer;
+      border-radius: 16px;
+}
