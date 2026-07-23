@@ -11,3 +11,9 @@
       flex-direction: column;
       align-items: center;
 }
+
+.main-1 .form {
+      display: flex;
+      flex-direction: column;
+      padding: 8px;
+}
