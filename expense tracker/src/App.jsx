@@ -10,7 +10,7 @@ function App() {
     let amount = Number(document.getElementById("amount").value);
     let date = document.getElementById("date").value;
 
-    const newExpense = { category, amount, date };
+    const newExpense = { category, amount, date};
 
     setExpenses((prev) => [...prev, newExpense]);
 
