@@ -63,15 +63,6 @@ function App() {
       </div>
       <div className="expenses">
         <h1>ITEMS: </h1>
-        {/* <ul>
-          {expenses.map((expense) => {
-            <li id={`${expense.amount}`}>
-              {`
-              Category: ${expense.category}, Amount Used: ${expense.amount}, Date
-              of Purchase: ${expense.amount}`}
-            </li>;
-          })}
-        </ul> */}
         <ul>
           {expenses.map((expense) => {
             return (
@@ -83,16 +74,6 @@ function App() {
           })}
         </ul>
       </div>
-      {/* <ul>
-        {expenses.map((expense) => {
-          return (
-            <li key={expense.amount}>
-              Category: {expense.category}, Amount Used: {expense.amount}, Date
-              of Purchase: {expense.date}
-            </li>
-          );
-        })}
-      </ul> */}
     </div>
   );
 }
