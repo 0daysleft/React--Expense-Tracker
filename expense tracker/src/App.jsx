@@ -12,11 +12,15 @@ function App() {
 
     expenses.push({category, amount, date});
 
+    console.log("1: ", expenses);
     let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
+
     setCash(3000-total);
+
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
     document.getElementById("date").value = "";
+
   }
 
   return (
@@ -55,7 +59,16 @@ function App() {
           Add Expense
         </button>
       </div>
-      <div className="expenses"></div>
+      <div className="expenses">
+        <h1>ITEMS: </h1>
+        {expenses.map(
+          (expense)=>{
+            <ul>
+              <li id={`${expense.amount}`}> Category: {expense.category }, Amount Used: {expense.amount}, Date of Purchase: { expense.amount} </li>
+            </ul>
+          }
+        )}
+      </div>
     </div>
   );
 }
