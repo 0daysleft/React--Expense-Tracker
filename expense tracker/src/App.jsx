@@ -3,14 +3,14 @@ import './App.css'
 
 function App() {
   const [cash, setCash] = useState(3000);
-  let expenses = [];
+  let [expenses, setExpenses] = useState([]);
 
   const addExpense = () => {
     let category = document.getElementById("category").value;
     let amount = Number(document.getElementById("amount").value);
     let date = document.getElementById("date").value;
 
-    expenses.push({category, amount, date});
+    setExpences(expenses.push({category, amount, date}));
 
     console.log(expenses);
     let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
@@ -61,13 +61,15 @@ function App() {
       </div>
       <div className="expenses">
         <h1>ITEMS: </h1>
-        {expenses.map(
-          (expense)=>{
-            <ul>
-              <li id={`${expense.amount}`}> Category: {expense.category }, Amount Used: {expense.amount}, Date of Purchase: { expense.amount} </li>
-            </ul>
-          }
-        )}
+        <ul>
+          {expenses.map((expense) => {
+            <li id={`${expense.amount}`}>
+              {" "}
+              Category: {expense.category}, Amount Used: {expense.amount}, Date
+              of Purchase: {expense.amount}{" "}
+            </li>;
+          })}
+        </ul>
       </div>
     </div>
   );
