@@ -10,7 +10,7 @@ function App() {
     let amount = Number(document.getElementById("amount").value);
     let date = document.getElementById("date").value;
 
-    setExpences(expenses.push({category, amount, date}));
+    setExpenses(expenses.push({category, amount, date}));
 
     console.log(expenses);
     let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
