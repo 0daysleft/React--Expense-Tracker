@@ -3,14 +3,16 @@ import './App.css'
 
 function App() {
   const [cash, setCash] = useState(3000);
-  let [expenses, setExpenses] = useState([]);
+  const [expenses, setExpenses] = useState([]);
 
   const addExpense = () => {
     let category = document.getElementById("category").value;
     let amount = Number(document.getElementById("amount").value);
     let date = document.getElementById("date").value;
 
-    setExpenses(expenses.push({category, amount, date}));
+    const newExpense = { category, amount, date };
+
+    setExpenses((prev) => [...prev, newExpense]);
 
     console.log(expenses);
     let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
@@ -59,9 +61,9 @@ function App() {
           Add Expense
         </button>
       </div>
-      {/* <div className="expenses">
+      <div className="expenses">
         <h1>ITEMS: </h1>
-        <ul>
+        {/* <ul>
           {expenses.map((expense) => {
             <li id={`${expense.amount}`}>
               {`
@@ -69,9 +71,19 @@ function App() {
               of Purchase: ${expense.amount}`}
             </li>;
           })}
+        </ul> */}
+        <ul>
+          {expenses.map((expense) => {
+            return (
+              <li key={expense.amount}>
+                Category: {expense.category}, Amount Used: {expense.amount},
+                Date of Purchase: {expense.date}
+              </li>
+            );
+          })}
         </ul>
-      </div> */}
-      <ul>
+      </div>
+      {/* <ul>
         {expenses.map((expense) => {
           return (
             <li key={expense.amount}>
@@ -80,7 +92,7 @@ function App() {
             </li>
           );
         })}
-      </ul>fie
+      </ul> */}
     </div>
   );
 }
