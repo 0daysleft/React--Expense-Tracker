@@ -12,7 +12,7 @@ function App() {
 
     expenses.push({category, amount, date});
 
-    console.log("1: ", expenses);
+    console.log(expenses);
     let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
 
     setCash(3000-total);
