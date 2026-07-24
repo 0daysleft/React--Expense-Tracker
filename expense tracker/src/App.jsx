@@ -15,7 +15,7 @@ function App() {
     console.log(expenses);
     let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
 
-    setCash(3000-total);
+    setCash(cash-total);
 
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
