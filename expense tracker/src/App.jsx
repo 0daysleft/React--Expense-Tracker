@@ -64,9 +64,10 @@ function App() {
         <ul>
           {expenses.map((expense) => {
             <li id={`${expense.amount}`}>
-              {" "}
-              Category: {expense.category}, Amount Used: {expense.amount}, Date
-              of Purchase: {expense.amount}{" "}
+              {`
+              Category: ${expense.category}, Amount Used: ${expense.amount}, Date
+              of Purchase: ${expense.amount}`
+          }
             </li>;
           })}
         </ul>
