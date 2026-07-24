@@ -15,7 +15,7 @@ function App() {
     console.log(expenses);
     let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
 
-    setCash(cash-total);
+    setCash(cash => cash -total);
 
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
@@ -30,7 +30,7 @@ function App() {
       <div className="form">
         <label htmlFor="category">Category:</label>
         <select id="category" name="category" required>
-          <option value="" selected disabled>
+          <option value="" defaultValue>
             📂 Select a category
           </option>
           <option value="housing">🏠 Housing</option>
