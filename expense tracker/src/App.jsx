@@ -59,19 +59,28 @@ function App() {
           Add Expense
         </button>
       </div>
-      <div className="expenses">
+      {/* <div className="expenses">
         <h1>ITEMS: </h1>
         <ul>
           {expenses.map((expense) => {
             <li id={`${expense.amount}`}>
               {`
               Category: ${expense.category}, Amount Used: ${expense.amount}, Date
-              of Purchase: ${expense.amount}`
-          }
+              of Purchase: ${expense.amount}`}
             </li>;
           })}
         </ul>
-      </div>
+      </div> */}
+      <ul>
+        {expenses.map((expense) => {
+          return (
+            <li key={expense.amount}>
+              Category: {expense.category}, Amount Used: {expense.amount}, Date
+              of Purchase: {expense.date}
+            </li>
+          );
+        })}
+      </ul>fie
     </div>
   );
 }
