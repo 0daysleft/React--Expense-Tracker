@@ -67,8 +67,8 @@ function App() {
           {expenses.map((expense) => {
             return (
               <li key={expense.amount}>
-                Category: {expense.category}, Amount Used: {expense.amount},
-                Date of Purchase: {expense.date}
+                Category: {expense?.category ?? "None"}, Amount Used: {expense?.amount ?? 0},
+                Date of Purchase: {expense?.date ?? new Date()}
               </li>
             );
           })}
