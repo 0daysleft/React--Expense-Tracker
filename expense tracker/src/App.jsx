@@ -68,7 +68,7 @@ function App() {
             return (
               <li key={expense.id}>
                 Category: {expense.category ?? "None"}, Amount Used: {expense.amount ?? 0},
-                Date of Purchase: {expense.date ?? new Date().toLocaleDateString() }
+                Date of Purchase: {expense.date ?? (new Date().toLocaleDateString())}
               </li>
             );
           })}
