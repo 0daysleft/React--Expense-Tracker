@@ -60,7 +60,11 @@ function App() {
           Amount:{" "}
         </label>
         <input type="number" className="number" id="amount" />
-        <label htmlFor="date" className="date">
+        <label
+          htmlFor="date"
+          className="date"
+          max={new Date().toISOString().split("T")[0]}
+        >
           Date:
         </label>
         <input type="date" className="date" id="date" />
