@@ -62,17 +62,24 @@ function App() {
         </button>
       </div>
       <div className="expenses">
-        <h1>ITEMS: </h1>
-        <ul>
-          {expenses.map((expense) => {
-            return (
+        <h1>ITEMS:</h1>
+
+        {expenses.length === 0 ? (
+          <p>No expenses recorded.</p>
+        ) : (
+          <ul>
+            {expenses.map((expense) => (
               <li key={expense.id}>
-                Category: {expense.category ?? "Miscs"}, Amount Used: {expense.amount ?? 3.5},
-                Date of Purchase: {expense.date ?? (new Date().toLocaleDateString())}
+                <strong>Category:</strong> {expense.category || "Misc"} <br />
+                <strong>Amount Used:</strong> {expense.amount ?? 3.5} <br />
+                <strong>Date of Purchase:</strong>{" "}
+                {expense.date
+                  ? new Date(expense.date).toLocaleDateString()
+                  : new Date().toLocaleDateString()}
               </li>
-            );
-          })}
-        </ul>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
