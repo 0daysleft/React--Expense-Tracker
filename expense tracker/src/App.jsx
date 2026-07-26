@@ -38,9 +38,7 @@ function App() {
       <div className="form">
         <label htmlFor="category">Category:</label>
         <select id="category" name="category" required>
-          <option value="" defaultValue disabled>
-            📂 Select a category
-          </option>
+          <option value="" defaultValue disabled> 📂 Select a category </option>
           <option value="housing">🏠 Housing</option>
           <option value="food">🛒 Food</option>
           <option value="transport">🚗 Transport</option>
