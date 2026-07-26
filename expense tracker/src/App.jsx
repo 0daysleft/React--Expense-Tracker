@@ -71,7 +71,7 @@ function App() {
             {expenses.map((expense) => (
               <li key={expense.id}>
                 <strong>Category:</strong> {expense.category || "Misc"} <br />
-                <strong>Amount Used:</strong> {expense.amount ?? 3.5} <br />
+                <strong>Amount Used:</strong> {expense.amount || 3.5} <br />
                 <strong>Date of Purchase:</strong>{" "}
                 {expense.date
                   ? new Date(expense.date).toLocaleDateString()
