@@ -67,7 +67,7 @@ function App() {
           {expenses.map((expense) => {
             return (
               <li key={expense.id}>
-                Category: {expense.category ?? "None"}, Amount Used: {expense.amount ?? 0},
+                Category: {expense.category ?? "Miscs"}, Amount Used: {expense.amount ?? 3.5},
                 Date of Purchase: {expense.date ?? (new Date().toLocaleDateString())}
               </li>
             );
