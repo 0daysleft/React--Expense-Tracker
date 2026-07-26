@@ -31,14 +31,13 @@ function App() {
       <h1>Monthly Expense Tracker</h1>
       <h2>Cash: ${cash.toLocaleString()}</h2>
 
-    <form action="#">
-      
-    </form>
-
-      <div className="form">
+      <form action="#" className="form">
         <label htmlFor="category">Category:</label>
         <select id="category" name="category" required>
-          <option value="" defaultValue disabled> 📂 Select a category </option>
+          <option value="" defaultValue disabled>
+            {" "}
+            📂 Select a category{" "}
+          </option>
           <option value="housing">🏠 Housing</option>
           <option value="food">🛒 Food</option>
           <option value="transport">🚗 Transport</option>
@@ -54,7 +53,7 @@ function App() {
           <option value="income">💵 Income</option>
         </select>
         <label htmlFor="number" className="amount">
-          Amount:{" "} < div id='amount-error'></div>
+          Amount: <div id="amount-error"></div>
         </label>
         <input type="number" className="number" id="amount" />
         <label
@@ -62,7 +61,7 @@ function App() {
           className="date"
           max={new Date().toISOString().split("T")[0]}
           //min = {"2026-07-01"}
-          min = "2026-07-01"
+          min="2026-07-01"
         >
           Date:
         </label>
@@ -70,7 +69,8 @@ function App() {
         <button className="submit" onClick={addExpense}>
           Add Expense
         </button>
-      </div>
+      </form>
+
       <div className="expenses">
         <h1>ITEMS:</h1>
 
