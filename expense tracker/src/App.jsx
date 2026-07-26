@@ -17,7 +17,6 @@ function App() {
 
     setExpenses((prev) => [...prev, newExpense]);
 
-    console.log(expenses);
     let total = expenses.reduce((sum, item) => { return item.amount + sum}, 0);
 
     setCash(cash => cash -total);
