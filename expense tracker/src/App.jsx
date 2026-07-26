@@ -64,6 +64,8 @@ function App() {
           htmlFor="date"
           className="date"
           max={new Date().toISOString().split("T")[0]}
+          //min = {"2026-07-01"}
+          min = "2026-07-01"
         >
           Date:
         </label>
@@ -79,8 +81,8 @@ function App() {
           <p>No expenses recorded.</p>
         ) : (
           <ul>
-            {expenses.map((expense) => (
-              <li key={expense.id}>
+            {expenses.map((expense, eid) => (
+              <li key={eid}>
                 <strong>Category:</strong> {expense.category || "Misc"} <br />
                 <strong>Amount Used:</strong> {expense.amount || 3.5} <br />
                 <strong>Date of Purchase:</strong>{" "}
