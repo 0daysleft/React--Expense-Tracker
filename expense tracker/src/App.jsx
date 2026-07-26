@@ -30,10 +30,15 @@ function App() {
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
       <h2>Cash: ${cash.toLocaleString()}</h2>
+
+    <form action="#">
+      
+    </form>
+
       <div className="form">
         <label htmlFor="category">Category:</label>
         <select id="category" name="category" required>
-          <option value="" defaultValue>
+          <option value="" defaultValue disabled>
             📂 Select a category
           </option>
           <option value="housing">🏠 Housing</option>
