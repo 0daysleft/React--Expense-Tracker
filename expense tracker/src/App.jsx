@@ -36,10 +36,7 @@ function App() {
       <form className="form">
         <label htmlFor="category">Category:</label>
         <select id="category" name="category" required>
-          <option value="" defaultValue selected disabled>
-            {" "}
-            📂 Select a category{" "}
-          </option>
+          <option value="" defaultValue selected disabled> 📂 Select a category </option>
           <option value="Housing">🏠 Housing</option>
           <option value="Food">🛒 Food</option>
           <option value="Transport">🚗 Transport</option>
