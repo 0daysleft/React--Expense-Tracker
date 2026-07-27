@@ -35,6 +35,12 @@
   border-radius: 16px;
 }
 
+table {
+  border-collapse: collapse;
+}
+
 table, th, tr, td{
+      width: 400px;
       border: 2px solid;
+      table-layout: auto;
 }
