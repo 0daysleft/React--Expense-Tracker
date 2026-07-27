@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const [cash, setCash] = useState(3000);
-  const [expenses, setExpenses] = useState(JSON.parse(sessionStorage.getItem("storedExpenses")) || []);
+  const [expenses, setExpenses] = useState([JSON.parse(sessionStorage.getItem("storedExpenses"))] || []);
 
   const addExpense = () => {
     let category = document.getElementById("category").value;
