@@ -4,6 +4,8 @@ import "./App.css";
 function App() {
   const [cash, setCash] = useState(3000);
   const [expenses, setExpenses] = useState([]);
+  let newStoredExpenses = JSON.parse(sessionStorage.getItem("storedExpenses"));
+  console.log(newStoredExpenses)
 
   const addExpense = () => {
     let category = document.getElementById("category").value;
@@ -23,6 +25,8 @@ function App() {
 
     setCash((cash) => cash - total);
 
+    sessionStorage.setItem("storedExpenses", JSON.stringify(expenses))
+
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
     document.getElementById("date").value = "";
@@ -36,7 +40,10 @@ function App() {
       <form className="form">
         <label htmlFor="category">Category:</label>
         <select id="category" name="category" required>
-          <option value="" defaultValue selected disabled> 📂 Select a category </option>
+          <option value="" defaultValue selected disabled>
+            {" "}
+            📂 Select a category{" "}
+          </option>
           <option value="Housing">🏠 Housing</option>
           <option value="Food">🛒 Food</option>
           <option value="Transport">🚗 Transport</option>
@@ -74,7 +81,7 @@ function App() {
       <div className="expenses">
         <h1>ITEMS:</h1>
 
-        {expenses.length === 0 ? (
+        {newStoredExpenses == null ? (
           <p>No expenses recorded.</p>
         ) : (
           <table>
@@ -84,7 +91,7 @@ function App() {
               <th>Date</th>
             </tr>
 
-            {expenses.map((expense, eid) => (
+            {newStoredExpenses.map((expense, eid) => (
               <tr key={eid}>
                 <td> {expense.category || "Misc"} </td>
                 <td> $.{expense.amount || 3.5} </td>
