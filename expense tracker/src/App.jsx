@@ -80,10 +80,10 @@ function App() {
           <ul>
             {expenses.map((expense, eid) => (
               <li key={eid}>
-                <strong>Category:</strong> {expense.category || "Misc"} <br />
-                <strong>Amount Used:</strong> {expense.amount || 3.5} <br />
+                <strong>Category:</strong> { expense.category || "Misc"  }
+                <strong>Amount Used:</strong> $. {expense.amount || 3.5  }
                 <strong>Date of Purchase:</strong>{" "}
-                {expense.date
+                { expense.date
                   ? new Date(expense.date).toLocaleDateString()
                   : new Date().toLocaleDateString()}
               </li>
