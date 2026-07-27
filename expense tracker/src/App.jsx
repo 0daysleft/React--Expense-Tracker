@@ -60,16 +60,16 @@ function App() {
           Amount: <div id="amount-error"></div>
         </label>
         <input type="number" className="number" id="amount" />
-        <label
-          htmlFor="date"
-          className="date"
-          max={new Date().toISOString().split("T")[0]}
-          //min = {"2026-07-01"}
-          min="2026-07-01"
-        >
+        <label htmlFor="date" className="date">
           Date:
         </label>
-        <input type="date" className="date" id="date" />
+        <input
+          type="date"
+          className="date"
+          id="date"
+          max={new Date().toISOString().split("T")[0]}
+          min={"2026-07-01"}
+        />
         <button className="submit" onClick={addExpense}>
           Add Expense
         </button>
