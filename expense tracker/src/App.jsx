@@ -3,9 +3,7 @@ import "./App.css";
 
 function App() {
   const [cash, setCash] = useState(3000);
-  const [expenses, setExpenses] = useState([]);
-  let newStoredExpenses = JSON.parse(sessionStorage.getItem("storedExpenses"));
-  console.log(newStoredExpenses)
+  const [expenses, setExpenses] = useState(JSON.parse(sessionStorage.getItem("storedExpenses")) || []);
 
   const addExpense = () => {
     let category = document.getElementById("category").value;
@@ -15,9 +13,14 @@ function App() {
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Date cannot be empty");
 
-    const newExpense = { category, amount, date };
-
+    sessionStorage.setItem(
+      "storedExpenses",
+      JSON.stringify({ category, amount, date }),
+    );
+    const newExpense = JSON.parse(sessionStorage.getItem("storedExpenses"));
+    console.log(newExpense)
     setExpenses((prev) => [...prev, newExpense]);
+    
 
     let total = expenses.reduce((sum, item) => {
       return item.amount + sum;
@@ -25,7 +28,6 @@ function App() {
 
     setCash((cash) => cash - total);
 
-    sessionStorage.setItem("storedExpenses", JSON.stringify(expenses))
 
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
@@ -81,7 +83,7 @@ function App() {
       <div className="expenses">
         <h1>ITEMS:</h1>
 
-        {newStoredExpenses == null ? (
+        {expenses.length == 0 ? (
           <p>No expenses recorded.</p>
         ) : (
           <table>
@@ -93,7 +95,7 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {newStoredExpenses.map((expense, eid) => (
+              {expenses.map((expense, eid) => (
                 <tr key={eid}>
                   <td> {expense.category || "Misc"} </td>
                   <td> $.{expense.amount || 3.5} </td>
