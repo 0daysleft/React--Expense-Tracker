@@ -85,24 +85,27 @@ function App() {
           <p>No expenses recorded.</p>
         ) : (
           <table>
-            <tr>
-              <th>Category</th>
-              <th>Amount</th>
-              <th>Date</th>
-            </tr>
-
-            {newStoredExpenses.map((expense, eid) => (
-              <tr key={eid}>
-                <td> {expense.category || "Misc"} </td>
-                <td> $.{expense.amount || 3.5} </td>
-
-                <td>
-                  {expense.date
-                    ? new Date(expense.date).toLocaleDateString()
-                    : new Date().toLocaleDateString()}{" "}
-                </td>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Date</th>
               </tr>
-            ))}
+            </thead>
+            <tbody>
+              {newStoredExpenses.map((expense, eid) => (
+                <tr key={eid}>
+                  <td> {expense.category || "Misc"} </td>
+                  <td> $.{expense.amount || 3.5} </td>
+
+                  <td>
+                    {expense.date
+                      ? new Date(expense.date).toLocaleDateString()
+                      : new Date().toLocaleDateString()}{" "}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         )}
       </div>
