@@ -40,19 +40,19 @@ function App() {
             {" "}
             📂 Select a category{" "}
           </option>
-          <option value="housing">🏠 Housing</option>
-          <option value="food">🛒 Food</option>
-          <option value="transport">🚗 Transport</option>
-          <option value="utilities">💡 Utilities</option>
-          <option value="healthcare">🏥 Healthcare</option>
-          <option value="shopping">🛍️ Shopping</option>
-          <option value="entertainment">🎬 Entertainment</option>
-          <option value="savings">💰 Savings</option>
-          <option value="bills_subscriptions">
+          <option value="Housing">🏠 Housing</option>
+          <option value="Food">🛒 Food</option>
+          <option value="Transport">🚗 Transport</option>
+          <option value="Utilities">💡 Utilities</option>
+          <option value="Healthcare">🏥 Healthcare</option>
+          <option value="Shopping">🛍️ Shopping</option>
+          <option value="Entertainment">🎬 Entertainment</option>
+          <option value="Savings">💰 Savings</option>
+          <option value="Bills & Subscriptions">
             📱 Bills &amp; Subscriptions
           </option>
-          <option value="miscellaneous">📦 Miscellaneous</option>
-          <option value="income">💵 Income</option>
+          <option value="Miscellaneous">📦 Miscellaneous</option>
+          <option value="Income">💵 Income</option>
         </select>
         <label htmlFor="number" className="amount">
           {" "}
