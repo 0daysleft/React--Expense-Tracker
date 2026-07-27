@@ -10,9 +10,7 @@ function App() {
     let amount = Number(document.getElementById("amount").value);
     let date = document.getElementById("date").value;
     if (category == "") return alert("Category cannot be empty");
-    if (amount <= 0)
-      return (document.getElementById("amount-error").innerHTML =
-        "Enter Money"); //alert("Amount cannot be empty");
+    if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Date cannot be empty");
 
     const newExpense = { category, amount, date };
@@ -56,9 +54,7 @@ function App() {
           <option value="miscellaneous">📦 Miscellaneous</option>
           <option value="income">💵 Income</option>
         </select>
-        <label htmlFor="number" className="amount">
-          Amount: <div id="amount-error"></div>
-        </label>
+        <label htmlFor="number" className="amount"> Amount: </label>
         <input type="number" className="number" id="amount" />
         <label htmlFor="date" className="date">
           Date:
