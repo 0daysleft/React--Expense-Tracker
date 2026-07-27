@@ -33,7 +33,7 @@ function App() {
       <h1>Monthly Expense Tracker</h1>
       <h2>Cash: ${cash.toLocaleString()}</h2>
 
-      <form action="#" className="form">
+      <form className="form">
         <label htmlFor="category">Category:</label>
         <select id="category" name="category" required>
           <option value="" defaultValue selected disabled>
