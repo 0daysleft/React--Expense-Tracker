@@ -25,7 +25,12 @@
 }
 
 .submit{
+      background-color: rgb(83, 110, 217);
+      color: whitesmoke;
+      Width: 200px;
+      height: 60px;
       margin: 1em 0 2px 0;
       cursor: pointer;
+      border: none;
       border-radius: 16px;
 }
