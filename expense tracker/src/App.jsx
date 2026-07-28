@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const [cash, setCash] = useState(() => {
-    const storeCash = sessionStorage.getItem("storedCash");
+    const storeCash = Number(sessionStorage.getItem("storedCash"));
     return storeCash ? Number(JSON.parse(storeCash)) : 3000;
   });
   const [category, setCategory] = useState("");
@@ -21,7 +21,7 @@ function App() {
     if (date == "") return alert("Date cannot be empty");
 
     const newExpense = { category, amount, date };
-
+    
     setExpenses((prev) => {
       const updated = [...prev, newExpense];
 
