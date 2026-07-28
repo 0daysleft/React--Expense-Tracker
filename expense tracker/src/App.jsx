@@ -19,13 +19,17 @@ const [expenses, setExpenses] = useState(() => {
 
     const newExpense = {category, amount, date };
 
-    setExpenses((prev) => {
-      const updatedExpenses = [...prev, newExpense];
+   setExpenses((prev) => {
+     const updated = [...prev, newExpense];
 
-      sessionStorage.setItem("storedExpenses", JSON.stringify(updatedExpenses));
+     sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
 
-      return updatedExpenses;
-    });
+     const total = updated.reduce((sum, item) => sum + item.amount, 0);
+
+     setCash(3000 - total);
+
+     return updated;
+   });
 
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
