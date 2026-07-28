@@ -3,7 +3,6 @@ import "./App.css";
 
 function App() {
   const [cash, setCash] = useState(3000);
- // const [expenses, setExpenses] = useState([JSON.parse(sessionStorage.getItem("storedExpenses"))] || []);
 const [expenses, setExpenses] = useState(() => {
   const stored = sessionStorage.getItem("storedExpenses");
   return stored ? JSON.parse(stored) : [];
@@ -18,10 +17,6 @@ const [expenses, setExpenses] = useState(() => {
     if (date == "") return alert("Date cannot be empty");
 
     const newExpense = {category, amount, date };
-    // sessionStorage.setItem(
-    //   "storedExpenses",
-    //   JSON.stringify(setExpenses((prev) => [...prev, newExpense])),
-    // );
 
     setExpenses((prev) => {
       const updatedExpenses = [...prev, newExpense];
@@ -31,8 +26,6 @@ const [expenses, setExpenses] = useState(() => {
       return updatedExpenses;
     });
 
-    //JSON.parse(sessionStorage.getItem("storedExpenses"));
-    //console.log(newExpense)
   
     let total = expenses.reduce((sum, item) => {
       return item.amount + sum;
