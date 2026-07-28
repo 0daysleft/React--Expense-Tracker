@@ -3,7 +3,11 @@ import "./App.css";
 
 function App() {
   const [cash, setCash] = useState(3000);
-  const [expenses, setExpenses] = useState([JSON.parse(sessionStorage.getItem("storedExpenses"))] || []);
+ // const [expenses, setExpenses] = useState([JSON.parse(sessionStorage.getItem("storedExpenses"))] || []);
+const [expenses, setExpenses] = useState(() => {
+  const stored = sessionStorage.getItem("storedExpenses");
+  return stored ? JSON.parse(stored) : [];
+});
 
   const addExpense = () => {
     let category = document.getElementById("category").value;
@@ -13,21 +17,28 @@ function App() {
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Date cannot be empty");
 
-    sessionStorage.setItem(
-      "storedExpenses",
-      JSON.stringify({ category, amount, date }),
-    );
-    const newExpense = JSON.parse(sessionStorage.getItem("storedExpenses"));
-    console.log(newExpense)
-    setExpenses((prev) => [...prev, newExpense]);
-    
+    const newExpense = {category, amount, date };
+    // sessionStorage.setItem(
+    //   "storedExpenses",
+    //   JSON.stringify(setExpenses((prev) => [...prev, newExpense])),
+    // );
 
+    setExpenses((prev) => {
+      const updatedExpenses = [...prev, newExpense];
+
+      sessionStorage.setItem("storedExpenses", JSON.stringify(updatedExpenses));
+
+      return updatedExpenses;
+    });
+
+    //JSON.parse(sessionStorage.getItem("storedExpenses"));
+    //console.log(newExpense)
+  
     let total = expenses.reduce((sum, item) => {
       return item.amount + sum;
     }, 0);
 
     setCash((cash) => cash - total);
-
 
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
@@ -83,7 +94,7 @@ function App() {
       <div className="expenses">
         <h1>ITEMS:</h1>
 
-        {expenses.length == 0 ? (
+        { expenses.length == 0 ? (
           <p>No expenses recorded.</p>
         ) : (
           <table>
