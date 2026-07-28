@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   const [cash, setCash] = useState(() => {
     const storeCash = sessionStorage.getItem("storedCash");
-    return storeCash ? JSON.parse(storeCash) : 3000;
+    return storeCash ? Number(JSON.parse(storeCash)) : 3000;
   });
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
