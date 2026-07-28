@@ -6,10 +6,10 @@ function App() {
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
-const [expenses, setExpenses] = useState(() => {
-  const stored = sessionStorage.getItem("storedExpenses");
-  return stored ? JSON.parse(stored) : [];
-});
+  const [expenses, setExpenses] = useState(() => {
+    const stored = sessionStorage.getItem("storedExpenses");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   const addExpense = (e) => {
     e.preventDefault();
@@ -17,19 +17,19 @@ const [expenses, setExpenses] = useState(() => {
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Date cannot be empty");
 
-    const newExpense = {category, amount, date };
+    const newExpense = { category, amount, date };
 
-   setExpenses((prev) => {
-     const updated = [...prev, newExpense];
+    setExpenses((prev) => {
+      const updated = [...prev, newExpense];
 
-     sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
+      sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
 
-     const total = updated.reduce((sum, item) => sum + item.amount, 0);
+      const total = updated.reduce((sum, item) => sum + item.amount, 0);
 
-     setCash(3000 - total);
+      setCash(3000 - total);
 
-     return updated;
-   });
+      return updated;
+    });
 
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
