@@ -9,7 +9,7 @@ const [expenses, setExpenses] = useState(() => {
 });
 
   const addExpense = (e) => {
-    e.preveventDefault();
+    e.preventDefault();
     let category = document.getElementById("category").value;
     let amount = Number(document.getElementById("amount").value);
     let date = document.getElementById("date").value;
@@ -43,7 +43,7 @@ const [expenses, setExpenses] = useState(() => {
 
       <form className="form">
         <label htmlFor="category">Category:</label>
-        <select id="category" name="category" value={category} required>
+        <select id="category" name="category" required>
           <option value=""  disabled>
             {" "}
             📂 Select a category{" "}
