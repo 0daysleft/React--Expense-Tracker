@@ -13,9 +13,6 @@ const [expenses, setExpenses] = useState(() => {
 
   const addExpense = (e) => {
     e.preventDefault();
-    // let category = document.getElementById("category").value;
-    // let amount = Number(document.getElementById("amount").value);
-    // let date = document.getElementById("date").value;
     if (category == "") return alert("Category cannot be empty");
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Date cannot be empty");
