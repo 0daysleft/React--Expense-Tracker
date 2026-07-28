@@ -3,6 +3,9 @@ import "./App.css";
 
 function App() {
   const [cash, setCash] = useState(3000);
+  const [category, setCategory] = useState("");
+  const [amount, setAmount] = useState("");
+  const [date, setDate] = useState("");
 const [expenses, setExpenses] = useState(() => {
   const stored = sessionStorage.getItem("storedExpenses");
   return stored ? JSON.parse(stored) : [];
