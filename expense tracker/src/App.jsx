@@ -8,7 +8,8 @@ const [expenses, setExpenses] = useState(() => {
   return stored ? JSON.parse(stored) : [];
 });
 
-  const addExpense = () => {
+  const addExpense = (e) => {
+    e.preveventDefault();
     let category = document.getElementById("category").value;
     let amount = Number(document.getElementById("amount").value);
     let date = document.getElementById("date").value;
