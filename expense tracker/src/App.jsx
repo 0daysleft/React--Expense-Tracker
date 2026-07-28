@@ -50,7 +50,7 @@ const [expenses, setExpenses] = useState(() => {
           id="category"
           name="category"
           required
-          onChange={(e) => setCategory(e.value)}
+          onChange={(e) => setCategory(e.target.value)}
         >
           <option value="" disabled>
             {" "}
@@ -74,7 +74,12 @@ const [expenses, setExpenses] = useState(() => {
           {" "}
           Amount:{" "}
         </label>
-        <input type="number" className="number" id="amount" onChange={ (e) => setAmount(e.value)} />
+        <input
+          type="number"
+          className="number"
+          id="amount"
+          onChange={(e) => setAmount(e.target.value)}
+        />
         <label htmlFor="date" className="date">
           Date:
         </label>
@@ -84,7 +89,7 @@ const [expenses, setExpenses] = useState(() => {
           id="date"
           max={new Date().toISOString().split("T")[0]}
           min={"2026-07-01"}
-          onChange={ (e) => setDate(e.value)}
+          onChange={(e) => setDate(e.target.value)}
         />
         <button className="submit" onClick={addExpense}>
           Add Expense
