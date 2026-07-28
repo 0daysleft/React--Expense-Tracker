@@ -43,8 +43,8 @@ const [expenses, setExpenses] = useState(() => {
 
       <form className="form">
         <label htmlFor="category">Category:</label>
-        <select id="category" name="category" required>
-          <option value="" defaultValue selected disabled>
+        <select id="category" name="category" value={category} required>
+          <option value=""  disabled>
             {" "}
             📂 Select a category{" "}
           </option>
