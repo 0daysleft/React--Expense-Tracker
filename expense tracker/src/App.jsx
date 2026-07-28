@@ -27,13 +27,6 @@ const [expenses, setExpenses] = useState(() => {
       return updatedExpenses;
     });
 
-  
-    let total = expenses.reduce((sum, item) => {
-      return item.amount + sum;
-    }, 0);
-
-    setCash((cash) => cash - total);
-
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
     document.getElementById("date").value = "";
