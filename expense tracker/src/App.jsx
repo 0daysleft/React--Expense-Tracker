@@ -47,6 +47,7 @@ function App() {
           id="category"
           name="category"
           required
+          value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="" disabled>
