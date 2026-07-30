@@ -50,10 +50,7 @@ function App() {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="" disabled>
-            {" "}
-            📂 Select a category{" "}
-          </option>
+          <option value="" disabled> 📂 Select a category</option>
           <option value="Housing">🏠 Housing</option>
           <option value="Food">🛒 Food</option>
           <option value="Transport">🚗 Transport</option>
@@ -62,9 +59,7 @@ function App() {
           <option value="Shopping">🛍️ Shopping</option>
           <option value="Entertainment">🎬 Entertainment</option>
           <option value="Savings">💰 Savings</option>
-          <option value="Bills & Subscriptions">
-            📱 Bills &amp; Subscriptions
-          </option>
+          <option value="Bills & Subscriptions">📱 Bills &amp; Subscriptions </option>
           <option value="Miscellaneous">📦 Miscellaneous</option>
           <option value="Income">💵 Income</option>
         </select>
