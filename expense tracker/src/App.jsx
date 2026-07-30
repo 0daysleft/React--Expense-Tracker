@@ -2,10 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [cash, setCash] = useState(() => {
-    const storeCash = Number(sessionStorage.getItem("storedCash"));
-    return storeCash ? Number(JSON.parse(storeCash)) : 3000;
-  });
+  const [cash, setCash] = useState(3000);
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -30,8 +27,7 @@ function App() {
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
       
       setCash(3000 - total);
-      sessionStorage.setItem("storedCash", JSON.stringify(cash));
-
+    
       return updated;
     });
 
