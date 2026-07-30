@@ -63,10 +63,7 @@ function App() {
           <option value="Miscellaneous">📦 Miscellaneous</option>
           <option value="Income">💵 Income</option>
         </select>
-        <label htmlFor="number" className="amount">
-          {" "}
-          Amount:{" "}
-        </label>
+        <label htmlFor="number" className="amount">Amount: </label>
         <input
           type="number"
           className="number"
