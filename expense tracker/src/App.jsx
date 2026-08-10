@@ -12,7 +12,7 @@ function App() {
   });
 
   const addExpense = (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     if (category == "") return alert("Category cannot be empty");
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Date cannot be empty");
