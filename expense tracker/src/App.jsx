@@ -15,7 +15,7 @@ function App() {
     e.preventDefault(); 
     if (category == "") return alert("Category cannot be empty");
     if (amount <= 0) return alert("Amount cannot be empty");
-    if (date == "") return alert("Date cannot be empty");
+    if (date == "") return alert("Please enter the date!!");
 
     const newExpense = { category, amount, date };
     
