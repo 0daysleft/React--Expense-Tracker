@@ -12,22 +12,22 @@ function App() {
   });
 
   const addExpense = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     if (category == "") return alert("Category cannot be empty");
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Please enter the date!!");
 
     const newExpense = { category, amount, date };
-    
+
     setExpenses((prev) => {
       const updated = [...prev, newExpense];
 
       sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
-      
+
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
-      
+
       setCash(3000 - total);
-    
+
       return updated;
     });
 
@@ -50,7 +50,10 @@ function App() {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="" disabled> 📂 Select a category</option>
+          <option value="" disabled>
+            {" "}
+            📂 Select a category
+          </option>
           <option value="Housing">🏠 Housing</option>
           <option value="Food">🛒 Food</option>
           <option value="Transport">🚗 Transport</option>
@@ -59,11 +62,15 @@ function App() {
           <option value="Shopping">🛍️ Shopping</option>
           <option value="Entertainment">🎬 Entertainment</option>
           <option value="Savings">💰 Savings</option>
-          <option value="Bills & Subscriptions">📱 Bills &amp; Subscriptions </option>
+          <option value="Bills & Subscriptions">
+            📱 Bills &amp; Subscriptions{" "}
+          </option>
           <option value="Miscellaneous">📦 Miscellaneous</option>
           <option value="Income">💵 Income</option>
         </select>
-        <label htmlFor="number" className="amount">Amount: </label>
+        <label htmlFor="number" className="amount">
+          Amount:{" "}
+        </label>
         <input
           type="number"
           className="number"
