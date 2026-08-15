@@ -11,8 +11,7 @@ function App() {
     return stored ? JSON.parse(stored) : [];
   });
 
-  const addExpense = (e) => {
-    e.preventDefault();
+  const addExpense = () => {
     if (category == "") return alert("Category cannot be empty");
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Please enter the date!!");
