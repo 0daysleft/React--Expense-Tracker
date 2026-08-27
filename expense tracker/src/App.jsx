@@ -12,7 +12,7 @@ function App() {
   });
 
   const addExpense = () => {
-    if (category == "") return alert("Category cannot be empty");
+    if (category == "") return alert("Category cannot be empty, Please choose a category");
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Please enter the date!!");
 
@@ -87,9 +87,10 @@ function App() {
           min={"2026-07-01"}
           onChange={(e) => setDate(e.target.value)}
         />
-        <button className="submit" onClick={addExpense}>
+        <button className="submit"  onClick={addExpense}>
           Add Expense
         </button>
+        
       </form>
 
       <div className="expenses">
