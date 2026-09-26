@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   let currentStoredCash = localStorage.setItem('cash', '3000') ;
-  const [cash, setCash] = useState(localStorage.getItem('cash'));
+  const [cash, setCash] = useState(Number(localStorage.getItem('cash')));
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
