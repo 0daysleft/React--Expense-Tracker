@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   //let currentStoredCash = localStorage.setItem('cash', '3000') ;
-  const [cash, setCash] = useState(Number(localStorage.getItem('cash')));
+  const [cash, setCash] = useState(Number(localStorage.getItem('cash')) || 3000);
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -27,6 +27,7 @@ function App() {
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
 
       setCash(Number(localStorage.getItem(cash)) - total);
+      localStorage.setItem('cash', cash.toString());
 
       return updated;
     });
