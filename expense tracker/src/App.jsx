@@ -26,7 +26,7 @@ function App() {
 
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
 
-      setCash(3000 - total);
+      setCash(Number(localStorage.getItem(cash)) - total);
 
       return updated;
     });
