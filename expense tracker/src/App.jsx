@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  //let currentStoredCash = localStorage.setItem('cash', '3000') ;
   const [cash, setCash] = useState(Number(localStorage.getItem('cash')) || 3000);
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
