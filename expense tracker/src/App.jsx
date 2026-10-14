@@ -30,7 +30,12 @@ function App() {
 
       sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
-      setCash(3000 - total);
+      //(total >= 3000):  "no " ? setCash(3000 - total)
+      if (total > 3000) {
+        return;
+      } else {
+        setCash(3000 - total);
+      }
 
       return updated;
     });
