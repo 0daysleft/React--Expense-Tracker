@@ -20,12 +20,14 @@ function App() {
     if (date == "") return alert("Please enter the date!!");
 
     const newExpense = { category, amount, date };
+    console.log(newExpense)
 
     setExpenses((prev) => {
       const updated = [...prev, newExpense];
+      console.log("1", updated);
 
       sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
-
+      
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
       console.log(updated);
       console.log("Total: ", total);
@@ -84,7 +86,7 @@ function App() {
           type="number"
           className="number"
           id="amount"
-          onChange={(e) => setAmount(e.target.value)}
+          onChange={(e) => setAmount(Number(e.target.value))}
         />
         <label htmlFor="date" className="date">
           Date:
