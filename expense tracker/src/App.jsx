@@ -22,22 +22,26 @@ function App() {
     if (category == "")
       return alert("Category cannot be empty, Please choose a category");
     if (amount <= 0) return alert("Amount cannot be empty");
-    if (date == "") return alert("Please enter the date!!");
+    if (date == "") return new Date().toLocaleDateString();
 
     setExpenses((prev) => {
       const newExpense = { category, amount, date };
       const updated = [...prev, newExpense];
+      
+      sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
       setCash(3000 - total);
-
-      sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
+      
 
       return updated;
     });
 
-    document.getElementById("category").value = "";
-    document.getElementById("amount").value = "";
-    document.getElementById("date").value = "";
+    // document.getElementById("category").value = null;
+    // document.getElementById("amount").value = "";
+    // document.getElementById("date").value = "";
+    setCategory("");
+    setAmount("");
+    setDate('');
   };
 
   localStorage.setItem("cash", cash.toString());
