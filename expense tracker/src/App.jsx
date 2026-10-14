@@ -11,7 +11,7 @@ function App() {
     const stored = sessionStorage.getItem("storedExpenses");
     return stored ? JSON.parse(stored) : [];
   });
-localStorage.setItem("cash", cash.toString());
+
   const addExpense = (e) => {
     e.preventDefault();
 
@@ -35,6 +35,9 @@ localStorage.setItem("cash", cash.toString());
     document.getElementById("amount").value = "";
     document.getElementById("date").value = "";
   };
+
+  localStorage.setItem("cash", cash.toString());
+  
   return (
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
