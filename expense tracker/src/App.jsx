@@ -32,7 +32,7 @@ function App() {
 
       sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
-      //(total >= 3000):  "no " ? setCash(3000 - total)
+
       if (total > 3000) {
         alert("You are poor!!");
         return;
@@ -50,7 +50,7 @@ function App() {
     setAmount("");
     setDate("");
   };
-
+  
   localStorage.setItem("cash", cash.toString());
 
   function clear() {
@@ -62,9 +62,9 @@ function App() {
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
       <h2>Available Balance: ${cash}</h2>
-      {/* <button onClick={
+      <button onClick={
         clear
-      } > Clear </button> */}
+      } > Clear </button>
 
       <form className="form">
         <label htmlFor="category">Category:</label>
