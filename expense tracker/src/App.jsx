@@ -27,6 +27,7 @@ function App() {
       sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
 
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
+      console.log(updated);
       console.log("Total: ", total);
       
       setCash(Number(localStorage.getItem(cash)) - total);
