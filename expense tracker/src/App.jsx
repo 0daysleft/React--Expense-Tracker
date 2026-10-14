@@ -19,9 +19,8 @@ function App() {
   const addExpense = (e) => {
     e.preventDefault();
 
-    if (category == "")
-      return alert("Category cannot be empty, Please choose a category");
-    if (amount <= 0) return alert("Amount cannot be empty");
+    if (category == "") return alert("Category cannot be empty!!");
+    if (amount <= 0) return alert("Amount cannot be empty!!");
     if (date == "") setDate(new Date().toLocaleDateString());
 
     setExpenses((prev) => {
@@ -42,10 +41,10 @@ function App() {
     });
 
     // document.getElementById("category").value = null;
-    document.getElementById("amount").value = "";
+    //document.getElementById("amount").value = "";
     // document.getElementById("date").value = "";
     setCategory("");
-    setAmount(0);
+    setAmount("");
     setDate("");
   };
 
@@ -61,9 +60,9 @@ function App() {
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
       <h2>Available Balance: ${cash}</h2>
-      <button onClick={
+      {/* <button onClick={
         clear
-      } > Clear </button>
+      } > Clear </button> */}
 
       <form className="form">
         <label htmlFor="category">Category:</label>
