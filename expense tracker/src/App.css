@@ -1,8 +1,13 @@
+body{
+  width: 100vw;
+  margin: 0;
+  height: 100vh;
+}
+
 .main-1 {
   width: 500px;
-  height: max-content;
   border: 2px solid black;
-  margin: 20em auto;
+  margin: auto;
 }
 
 .main-1 {
