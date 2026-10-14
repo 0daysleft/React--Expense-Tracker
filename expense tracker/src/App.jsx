@@ -10,35 +10,34 @@ function App() {
     const stored = sessionStorage.getItem("storedExpenses");
     return stored ? JSON.parse(stored) : [];
   });
-  console.log("1");
+
   const addExpense = (e) => {
     e.preventDefault();
-    console.log("2");
+    
     if (category == "") return alert("Category cannot be empty, Please choose a category");
-    console.log("3");
+    
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Please enter the date!!");
-console.log("4");
+
     const newExpense = { category, amount, date };
-console.log("5");
+
     setExpenses((prev) => {
       const updated = [...prev, newExpense];
-console.log("6");
+
       sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
-console.log("7");
+
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
       console.log("Total: ", total);
-      console.log("8");
+      
       setCash(Number(localStorage.getItem(cash)) - total);
-      console.log("9");
+     
       localStorage.setItem('cash', cash.toString());
       console.log("Cash AMount:", cash)
-      console.log("10");
+      
       console.log("Cash AMount:")
-console.log("11");
+
       return updated;
     });
-    console.log("12");
 
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
