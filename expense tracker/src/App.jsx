@@ -32,7 +32,7 @@ function App() {
       console.log(updated);
       console.log("Total: ", total);
       
-      setCash(Number(localStorage.getItem(cash)) - total);
+      setCash(3000 - total);
      
       localStorage.setItem('cash', cash.toString());
       console.log("Cash AMount:", cash)
