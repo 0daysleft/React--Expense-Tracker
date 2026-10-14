@@ -51,10 +51,18 @@ function App() {
 
   localStorage.setItem("cash", cash.toString());
 
+  function clear(){
+    sessionStorage.clear('storedExpenses');
+    localStorage.clear('cash');
+  }
+
   return (
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
       <h2>Available Balance: ${cash}</h2>
+      <button onClick={
+        clear
+      } > Clear </button>
 
       <form className="form">
         <label htmlFor="category">Category:</label>
