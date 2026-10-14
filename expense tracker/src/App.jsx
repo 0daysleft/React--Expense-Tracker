@@ -50,7 +50,7 @@ function App() {
   return (
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
-      <h2>Cash: ${localStorage.getItem("cash")}</h2>
+      <h2>Cash: ${cash}</h2>
 
       <form className="form">
         <label htmlFor="category">Category:</label>
