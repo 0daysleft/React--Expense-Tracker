@@ -22,26 +22,25 @@ function App() {
     if (category == "")
       return alert("Category cannot be empty, Please choose a category");
     if (amount <= 0) return alert("Amount cannot be empty");
-    if (date == "") return new Date().toLocaleDateString();
+    if (date == "") setDate(new Date().toLocaleDateString());
 
     setExpenses((prev) => {
       const newExpense = { category, amount, date };
       const updated = [...prev, newExpense];
-      
+
       sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
       setCash(3000 - total);
-      
 
       return updated;
     });
 
     // document.getElementById("category").value = null;
-    // document.getElementById("amount").value = "";
+    document.getElementById("amount").value = "";
     // document.getElementById("date").value = "";
     setCategory("");
-    setAmount("");
-    setDate('');
+    setAmount(0);
+    setDate("");
   };
 
   localStorage.setItem("cash", cash.toString());
@@ -49,7 +48,7 @@ function App() {
   return (
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
-      <h2>Cash: ${cash}</h2>
+      <h2>Available Balance: ${cash}</h2>
 
       <form className="form">
         <label htmlFor="category">Category:</label>
