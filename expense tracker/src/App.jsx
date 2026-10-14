@@ -2,12 +2,12 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  //const [cash, setCash] = useState(Number(localStorage.getItem('cash')));
   const [cash, setCash] = useState(
     localStorage.getItem("cash") == null
       ? localStorage.setItem("cash", 3000)
       : Number(localStorage.getItem("cash")),
   );
+
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -32,7 +32,7 @@ function App() {
       //(total >= 3000):  "no " ? setCash(3000 - total)
       if (total > 3000) {
         alert("You are poor!!");
-        return
+        return;
       } else {
         setCash(3000 - total);
       }
@@ -50,10 +50,9 @@ function App() {
 
   localStorage.setItem("cash", cash.toString());
 
-  function clear(){
-    sessionStorage.clear('storedExpenses');
-    localStorage.clear('cash');
-    
+  function clear() {
+    sessionStorage.clear("storedExpenses");
+    localStorage.clear("cash");
   }
 
   return (
