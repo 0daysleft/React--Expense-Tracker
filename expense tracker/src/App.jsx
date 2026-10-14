@@ -32,7 +32,7 @@ function App() {
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
       //(total >= 3000):  "no " ? setCash(3000 - total)
       if (total > 3000) {
-        return;
+        return alert("You are poor!!");
       } else {
         setCash(3000 - total);
       }
