@@ -3,7 +3,6 @@ body{
   margin: 0;
   height: 100vh;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
 }
@@ -13,7 +12,6 @@ body{
   width: 500px;
   border: 2px solid black;
   margin: auto;
-  /* transform: translate(50%, 50%); */
 }
 
 .main-1 {
