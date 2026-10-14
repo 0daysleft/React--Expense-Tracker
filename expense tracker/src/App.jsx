@@ -54,6 +54,7 @@ function App() {
   function clear(){
     sessionStorage.clear('storedExpenses');
     localStorage.clear('cash');
+    
   }
 
   return (
