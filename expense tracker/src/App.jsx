@@ -2,11 +2,14 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [cash, setCash] = useState(
-    localStorage.getItem("cash") == null
-      ? localStorage.setItem("cash", 3000)
-      : Number(localStorage.getItem("cash")),
-  );
+  const [cash, setCash] = useState(() => {
+    const saved = localStorage.getItem("cash");
+    if (saved === null) {
+      localStorage.setItem("cash", "3000");
+      return 3000;
+    }
+    return Number(saved);
+  });
 
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
