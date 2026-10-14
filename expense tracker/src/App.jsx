@@ -3,7 +3,11 @@ import "./App.css";
 
 function App() {
   //const [cash, setCash] = useState(Number(localStorage.getItem('cash')));
-  const [cash, setCash] = useState((localStorage.getItem('cash') == null)? localStorage.setItem('cash', 3000) : Number(localStorage.getItem('cash')));
+  const [cash, setCash] = useState(
+    localStorage.getItem("cash") == null
+      ? localStorage.setItem("cash", 3000)
+      : Number(localStorage.getItem("cash")),
+  );
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -15,29 +19,29 @@ function App() {
   const addExpense = (e) => {
     e.preventDefault();
 
-    if (category == "") return alert("Category cannot be empty, Please choose a category");
+    if (category == "")
+      return alert("Category cannot be empty, Please choose a category");
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Please enter the date!!");
 
-    
     setExpenses((prev) => {
       const newExpense = { category, amount, date };
       const updated = [...prev, newExpense];
       const total = updated.reduce((sum, item) => sum + item.amount, 0);
       setCash(3000 - total);
-      
+
       sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
-      
+
       return updated;
     });
-    
+
     document.getElementById("category").value = "";
     document.getElementById("amount").value = "";
     document.getElementById("date").value = "";
   };
 
   localStorage.setItem("cash", cash.toString());
-  
+
   return (
     <div className="main-1">
       <h1>Monthly Expense Tracker</h1>
@@ -90,10 +94,9 @@ function App() {
           min={"2026-07-01"}
           onChange={(e) => setDate(e.target.value)}
         />
-        <button className="submit"  onClick={addExpense}>
+        <button className="submit" onClick={addExpense}>
           Add Expense
         </button>
-        
       </form>
 
       <div className="expenses">
