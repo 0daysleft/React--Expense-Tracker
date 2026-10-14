@@ -15,23 +15,19 @@ function App() {
     e.preventDefault();
     
     if (category == "") return alert("Category cannot be empty, Please choose a category");
-    
     if (amount <= 0) return alert("Amount cannot be empty");
     if (date == "") return alert("Please enter the date!!");
 
-    const newExpense = { category, amount, date };
-    console.log(newExpense)
-
+    
     setExpenses((prev) => {
+      const newExpense = { category, amount, date };
       const updated = [...prev, newExpense];
+      const total = updated.reduce((sum, item) => sum + item.amount, 0);
+      setCash(3000 - total);
+      localStorage.setItem('cash', cash.toString());
 
       sessionStorage.setItem("storedExpenses", JSON.stringify(updated));
       
-      const total = updated.reduce((sum, item) => sum + item.amount, 0);
-      setCash(3000 - total);
-     
-      localStorage.setItem('cash', cash.toString());
-
       return updated;
     });
 
