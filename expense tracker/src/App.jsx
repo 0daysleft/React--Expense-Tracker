@@ -11,7 +11,8 @@ function App() {
     return stored ? JSON.parse(stored) : [];
   });
   console.log("1");
-  const addExpense = () => {
+  const addExpense = (e) => {
+    e.preventDefault();
     console.log("2");
     if (category == "") return alert("Category cannot be empty, Please choose a category");
     console.log("3");
