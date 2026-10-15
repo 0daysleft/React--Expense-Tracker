@@ -1,13 +1,15 @@
+//document.getElementById("check").
+let myTasks = document.querySelectorAll(".check");
+let taskContents = document.querySelectorAll(".task-name");
 
-
-document.getElementById("check").addEventListener("change", function(event) {
-      event.target.checked
-        ? ((document.getElementById("task-name").style.textDecoration =
-            "line-through"),
-          (document.getElementById("task-name").style.color = "pink"),
-          (document.getElementById("range-bar").value = 1))
-        : ((document.getElementById("task-name").style.textDecoration = "none"),
-          (document.getElementById("task-name").style.color = "black"),
-          (document.getElementById("range-bar").value = 0));
-}
-);
+myTasks.forEach((task) => {
+  task.addEventListener("change", function (event) {
+    event.target.checked
+      ? ((task.style.textDecoration = "line-through"),
+        (task.style.color = "pink"),
+        (document.getElementById("range-bar").value += 1))
+      : ((task.style.textDecoration = "none"),
+        (task.style.color = "black"),
+        (document.getElementById("range-bar").value -= 1));
+  });
+});
