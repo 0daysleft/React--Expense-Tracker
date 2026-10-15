@@ -47,7 +47,7 @@ function App() {
     //document.getElementById("amount").value = "";
     // document.getElementById("date").value = "";
     setCategory("");
-    setAmount("");
+    setAmount(0);
     setDate("");
   };
   
