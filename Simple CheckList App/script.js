@@ -16,22 +16,34 @@
 // });
 
 let myTasks = document.querySelectorAll(".check");
+//let checkbox_details = document.querySelectorAll(");
 
-myTasks.forEach((task) => {
+myTasks.forEach((task, index) => {
   task.addEventListener("change", function (event) {
     let rangeBar = document.getElementById("range-bar");
     let currentValue = Number(rangeBar.value);
-
+// checkbox_details.forEach( 
+//       (detail) => {
     if (event.target.checked) {
-      task.style.textDecoration = "line-through";
-      task.style.color = "pink";
+      document.getElementsByClassName("checkbox-span-contents")[
+        index
+      ].style.textDecoration = "line-through";
+      document.getElementsByClassName("checkbox-span-contents")[
+        index
+      ].style.color = "pink";
       rangeBar.value = currentValue + 1;
     } else {
-      task.style.textDecoration = "none";
-      task.style.color = "black";
+      document.getElementsByClassName("checkbox-span-contents")[
+        index
+      ].style.textDecoration = "none";
+      document.getElementsByClassName("checkbox-span-contents")[
+        index
+      ].style.color = "black";
       rangeBar.value = currentValue - 1;
     }
 
-    //alert(rangeBar.value);
-  });
+    //alert(index, " clicked");
+  }
+//)}
+);
 });
