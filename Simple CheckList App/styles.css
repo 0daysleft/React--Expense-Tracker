@@ -1,0 +1,11 @@
+#range-bar {
+  color: aqua;
+  background-color: blueviolet;
+  width: 70vw;
+}
+
+#range-bar:disabled {
+  cursor: not-allowed;
+  color: green;
+  background-color: blue;
+}
