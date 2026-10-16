@@ -4,7 +4,7 @@ let items = document.getElementById("to-Do-Items-Container");
 
 let toDoArray = ["Example To Do 1", "Example To Do 2", "Example To Do 3"];
 
-function addItemsToArray() {
+function addItemToArray() {
   let inputValue = toDo.value;
   if (inputValue == " " || inputValue == "") return;
   toDoArray.push(inputValue);
@@ -12,6 +12,12 @@ function addItemsToArray() {
 
   DisplayToDo();
 }
+
+toDo.addEventListener("keypress" , (e) => {
+ if(e.key == "Enter"){
+      addItemToArray();
+ }
+})
 
 function DisplayToDo() {
   items.innerHTML = "";
@@ -33,5 +39,5 @@ function deleteList(x) {
   DisplayToDo();
 }
 
-button.onclick = () => addItemsToArray();
+button.onclick = () => addItemToArray();
 DisplayToDo();
